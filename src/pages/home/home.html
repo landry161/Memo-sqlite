@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Mes Notes
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="NouvelleNote()">
+        <ion-icon name="md-add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item-sliding *ngFor="let resultat of mesNotes">
+          <ion-item>
+            <h2>{{resultat.titre}}</h2>
+            <p>{{resultat.contenu}}</p>
+          </ion-item>
+          <ion-item-options>
+            <button ion-button color="light" icon-start (click)="details(resultat)">
+              <ion-icon name="create"></ion-icon>
+            </button>
+            <button ion-button color="danger" icon-start (click)="supprimer(resultat)">
+              <ion-icon name="trash"></ion-icon>
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+</ion-content>
